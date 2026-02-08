@@ -3,281 +3,465 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Jammu & Kashmir Awami Nationalist Front</title>
 
 <style>
 
 body{
 margin:0;
-font-family:Georgia, serif;
-background:#f4f6f8;
-}
-
-/* HEADER */
-header{
-background:#0b3d2e;
-color:white;
-padding:12px 20px;
-display:flex;
-align-items:center;
-}
-
-header img{
-height:45px;
-margin-right:12px;
-}
-
-header h1{
-font-size:20px;
-margin:0;
+font-family:Georgia,"Times New Roman",serif;
+background:#f5f5f5;
+color:#111;
 }
 
 /* NAVBAR */
-nav{
-background:#07251d;
-padding:10px;
-text-align:center;
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#111;
+color:white;
+padding:12px 25px;
+box-shadow:0 3px 8px rgba(0,0,0,0.4);
 }
 
-nav button{
-background:none;
-border:none;
+.nav-left{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.nav-left img{
+height:55px;
+}
+
+.nav-title{
+font-size:18px;
+font-weight:bold;
+}
+
+.nav-links a{
+margin-left:20px;
 color:white;
-font-size:16px;
-margin:0 15px;
+text-decoration:none;
+font-weight:bold;
 cursor:pointer;
 }
 
-nav button:hover{
-text-decoration:underline;
+.nav-links a:hover{
+color:#cc0000;
 }
 
-/* TABS */
-.tab{
+
+/* PAGE */
+
+.page{
 display:none;
-padding:40px;
-max-width:900px;
+max-width:1100px;
 margin:auto;
-background:white;
-margin-top:20px;
-border-radius:8px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+padding:40px 20px;
 }
 
 .active{
 display:block;
 }
 
-/* HOME FLAG */
-.home-flag{
-display:block;
-margin:auto;
-height:120px;
+
+/* HERO */
+
+.hero{
+text-align:center;
+background:white;
+padding:40px;
+border-radius:8px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.hero img{
+height:170px;
 margin-bottom:15px;
 }
 
-/* SLIDES */
+.hero h1{
+font-size:36px;
+margin:10px 0;
+}
+
+.hero h2{
+color:#cc0000;
+margin:0;
+}
+
+.tagline{
+margin-top:10px;
+font-size:17px;
+}
+
+
+/* MEMBER COUNTER */
+
+.counter{
+margin-top:20px;
+font-size:18px;
+font-weight:bold;
+color:#cc0000;
+}
+
+
+/* SLIDER */
+
 .slider{
-position:relative;
+background:white;
+margin-top:30px;
+padding:0;
 overflow:hidden;
-height:120px;
+border-left:6px solid #cc0000;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+.slides{
+display:flex;
+transition:transform 0.5s ease;
 }
 
 .slide{
-display:none;
-font-size:22px;
-font-weight:bold;
-text-align:center;
+min-width:100%;
+padding:30px;
+box-sizing:border-box;
 }
 
-.slide.active{
-display:block;
-animation:fade 1s;
+.slide h3{
+color:#cc0000;
+font-size:26px;
+margin-bottom:10px;
 }
 
-@keyframes fade{
-from{opacity:0;}
-to{opacity:1;}
+.slide p{
+font-size:17px;
+line-height:1.6;
 }
 
-/* JOIN FORM */
-form{
-display:flex;
-flex-direction:column;
+
+/* PAPER */
+
+.paper{
+background:white;
+padding:25px;
+margin-top:25px;
+border-left:6px solid #cc0000;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
 }
 
-input{
-padding:10px;
-margin:10px 0;
+
+/* JOIN */
+
+input,button{
+width:100%;
+padding:12px;
+margin-top:10px;
+margin-bottom:10px;
 font-size:16px;
 }
 
-button.submit{
-background:#0b3d2e;
+button{
+background:#cc0000;
 color:white;
 border:none;
-padding:12px;
-font-size:16px;
+font-weight:bold;
 cursor:pointer;
 }
 
-button.submit:hover{
-background:#145c44;
+button:hover{
+background:#990000;
 }
 
 .success{
-display:none;
-background:green;
-color:white;
-padding:15px;
 margin-top:15px;
-border-radius:5px;
+color:green;
+font-weight:bold;
 }
 
+
 /* FOOTER */
-footer{
-text-align:center;
-padding:15px;
-background:#0b3d2e;
+
+.footer{
+background:#111;
 color:white;
-margin-top:30px;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+.footer small{
+color:#ccc;
 }
 
 </style>
 </head>
+
 <body>
 
-<!-- HEADER -->
-<header>
-<img src="flag.png">
-<h1>Jammu & Kashmir Awami Nationalist Front</h1>
-</header>
 
-<!-- NAV -->
-<nav>
-<button onclick="showTab('home')">Home</button>
-<button onclick="showTab('history')">History</button>
-<button onclick="showTab('join')">Join</button>
-</nav>
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="nav-left">
+<img src="logo.png">
+<div class="nav-title">
+Jammu & Kashmir Awami Nationalist Front
+</div>
+</div>
+
+<div class="nav-links">
+<a onclick="showPage('home')">Home</a>
+<a onclick="showPage('about')">About</a>
+<a onclick="showPage('history')">History</a>
+<a onclick="showPage('join')">Join</a>
+</div>
+
+</div>
+
+
 
 <!-- HOME -->
-<div id="home" class="tab active">
 
-<img src="flag.png" class="home-flag">
+<div id="home" class="page active">
 
-<h2 style="text-align:center;">Jammu & Kashmir Awami Nationalist Front</h2>
+<div class="hero">
+
+<img src="logo.png">
+
+<h1>Jammu & Kashmir Awami Nationalist Front</h1>
+
+<h2>JKANF</h2>
+
+<div class="tagline">
+Unity • Identity • Strength • Future
+</div>
+
+<div class="counter">
+Members Joined: <span id="memberCount">0</span>
+</div>
+
+</div>
+
 
 <div class="slider">
 
-<div class="slide active">
-A political movement for dignity, unity, and national awakening.
+<div class="slides" id="slides">
+
+<div class="slide">
+<h3>Unity</h3>
+<p>
+Our movement seeks to unite people under a shared identity and common purpose. Together, we are stronger and capable of shaping our future.
+</p>
 </div>
 
 <div class="slide">
-We stand for democratic rights and self-respect of our people.
+<h3>Identity</h3>
+<p>
+We aim to preserve our cultural, national, and historical identity while building awareness among the people.
+</p>
 </div>
 
 <div class="slide">
-Our strength lies in the unity and will of the people.
+<h3>Future</h3>
+<p>
+Our vision is to create a strong, organized, and determined community ready to achieve its rightful goals.
+</p>
+</div>
+
+<div class="slide">
+<h3>Strength</h3>
+<p>
+Strength comes from unity, discipline, and determination. Through collective will, we build an unbreakable movement.
+</p>
 </div>
 
 </div>
 
 </div>
 
-<!-- HISTORY -->
-<div id="history" class="tab">
+</div>
 
-<h2>History</h2>
+
+
+<!-- ABOUT -->
+
+<div id="about" class="page">
+
+<div class="paper">
+
+<h2>About the Movement</h2>
 
 <p>
-The Jammu & Kashmir Awami Nationalist Front was founded with the objective of representing the political will, identity, and aspirations of the people of Jammu and Kashmir. It emerged during a time when political awareness and public participation were growing across the region.
+The Jammu & Kashmir Awami Nationalist Front (JKANF) is a political movement committed to representing the voice, identity, and aspirations of the people.
 </p>
 
 <p>
-The movement was created to unite citizens under a common vision of dignity, democratic participation, and national consciousness. From its beginning, the Front emphasized peaceful political organization, public mobilization, and awareness.
+Our mission is to build unity, promote awareness, and strengthen the collective will of the population.
 </p>
 
 <p>
-The Front continues to grow as more citizens join its mission to strengthen political representation and ensure a stable and respected future for the people.
+We believe in discipline, organization, and long-term vision.
 </p>
 
 </div>
+
+</div>
+
+
+
+<!-- HISTORY RESTORED -->
+
+<div id="history" class="page">
+
+<div class="paper">
+
+<h2>History of Kashmir</h2>
+
+<p>
+Kashmir has always been in a conflict since its foundation in 1846 as a princely state. In 1947, the nation became the center of conflict between its two neighbors, India and the newly born Muslim nation of Pakistan. Both the countries claimed the entirety of the nation, which sparked the first Indo-Pak War also known as the First Kashmir War.
+</p>
+
+<p>
+Since then, Kashmir has been divided into two sections, the Indian Administered Kashmir, which consisted of the majority of the population and the old capital Srinagar, and the Pakistani Administered Kashmir, which consisted of the Gilgit-Baltistan region and the so called Azad Jammu Kashmir region (AJK).
+</p>
+
+<p>
+In 1962, China entered the conflict by declaring war on India and occupying the two regions in Ladakh known as Aksai Chin and Shaksgam Valley, thus dividing Kashmir into three occupying zones.
+</p>
+
+<p>
+Moreover in 2019, Article 370, which gave a special status to Indian Administered Kashmir, was abrogated by the Indian Parliament. This meant that the nation was completely integrated by the Union of India and its flag and constitution was completely removed.
+</p>
+
+<p>
+In addition, the Indian Parliament passed the Jammu and Kashmir Reorganisation Act, 2019 which divided the state into two Union territories: Jammu & Kashmir and Ladakh.
+</p>
+
+<p>
+Kashmir was divided, suppressed and then integrated by the large superpowers around it. But this does not mean that the movement is dead. Kashmir’s unity and dignity has to be held high.
+</p>
+
+</div>
+
+</div>
+
+
 
 <!-- JOIN -->
-<div id="join" class="tab">
 
-<h2>Join JKANF</h2>
+<div id="join" class="page">
+
+<div class="paper">
+
+<h2>Join the Movement</h2>
 
 <form id="joinForm">
 
 <label>Full Name</label>
-<input type="text" required>
+<input name="name" required>
 
 <label>Date of Birth</label>
-<input type="date" required>
+<input type="date" name="dob" required>
 
-<label>Gmail OR Phone Number</label>
-<input type="text" required>
+<label>Gmail or Phone Number</label>
+<input name="contact" required>
 
 <label>Address</label>
-<input type="text" required>
+<input name="address" required>
 
-<button class="submit">Submit Application</button>
+<button type="submit">Join Movement</button>
 
 </form>
 
-<div id="success" class="success">
-Application submitted successfully. Welcome to JKANF.
-</div>
+<div class="success" id="successMsg"></div>
 
 </div>
 
-<footer>
-© 2026 Jammu & Kashmir Awami Nationalist Front
-</footer>
+</div>
+
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+Jammu & Kashmir Awami Nationalist Front<br>
+<small>Official Political Movement Website</small>
+</div>
+
+
 
 <script>
 
-/* TAB SYSTEM */
-function showTab(tabId){
+/* PAGE SWITCH */
 
-document.querySelectorAll(".tab").forEach(tab=>{
-tab.classList.remove("active");
-});
+function showPage(page){
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+document.getElementById(page).classList.add("active");
+}
 
-document.getElementById(tabId).classList.add("active");
+
+/* SLIDER FIXED */
+
+let slideIndex=0;
+
+function slideMove(){
+
+slideIndex++;
+
+if(slideIndex>3) slideIndex=0;
+
+document.getElementById("slides").style.transform =
+"translateX(-"+(slideIndex*100)+"%)";
 
 }
 
-/* SLIDER */
-let slides=document.querySelectorAll(".slide");
-let index=0;
+setInterval(slideMove,4000);
 
-setInterval(()=>{
 
-slides[index].classList.remove("active");
+/* MEMBER COUNTER */
 
-index=(index+1)%slides.length;
+let count=localStorage.getItem("memberCount") || 0;
+document.getElementById("memberCount").innerText=count;
 
-slides[index].classList.add("active");
 
-},4000);
+/* FORM */
 
-/* JOIN FORM */
 document.getElementById("joinForm").addEventListener("submit",function(e){
 
 e.preventDefault();
 
-document.getElementById("success").style.display="block";
+let formData=new FormData(this);
+
+fetch("https://script.google.com/macros/s/AKfycbx2Y6_JEe-NAKGY4wHaWYt9cDENy6kDfIghcKP06q1dHz6rWE7ZKbwNcQRpIbHkwo0_/exec",{
+method:"POST",
+body:formData
+})
+.then(res=>{
+
+count++;
+localStorage.setItem("memberCount",count);
+document.getElementById("memberCount").innerText=count;
+
+document.getElementById("successMsg").innerText="Successfully Joined.";
 
 this.reset();
 
 });
 
+});
+
 </script>
+
 
 </body>
 </html>
+
+
 
 
