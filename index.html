@@ -324,27 +324,7 @@ We believe in discipline, organization, and long-term vision.
 <h2>History of Kashmir</h2>
 
 <p>
-Kashmir has always been in a conflict since its foundation in 1846 as a princely state. In 1947, the nation became the center of conflict between its two neighbors, India and the newly born Muslim nation of Pakistan. Both the countries claimed the entirety of the nation, which sparked the first Indo-Pak War also known as the First Kashmir War.
-</p>
-
-<p>
-Since then, Kashmir has been divided into two sections, the Indian Administered Kashmir, which consisted of the majority of the population and the old capital Srinagar, and the Pakistani Administered Kashmir, which consisted of the Gilgit-Baltistan region and the so called Azad Jammu Kashmir region (AJK).
-</p>
-
-<p>
-In 1962, China entered the conflict by declaring war on India and occupying the two regions in Ladakh known as Aksai Chin and Shaksgam Valley, thus dividing Kashmir into three occupying zones.
-</p>
-
-<p>
-Moreover in 2019, Article 370, which gave a special status to Indian Administered Kashmir, was abrogated by the Indian Parliament. This meant that the nation was completely integrated by the Union of India and its flag and constitution was completely removed.
-</p>
-
-<p>
-In addition, the Indian Parliament passed the Jammu and Kashmir Reorganisation Act, 2019 which divided the state into two Union territories: Jammu & Kashmir and Ladakh.
-</p>
-
-<p>
-Kashmir was divided, suppressed and then integrated by the large superpowers around it. But this does not mean that the movement is dead. Kashmir’s unity and dignity has to be held high.
+Kashmir has always been in a conflict since its foundation in 1846 as a princely state...
 </p>
 
 </div>
@@ -406,7 +386,7 @@ document.getElementById(page).classList.add("active");
 }
 
 
-/* SLIDER FIXED */
+/* SLIDER */
 
 let slideIndex=0;
 
@@ -430,7 +410,7 @@ let count=localStorage.getItem("memberCount") || 0;
 document.getElementById("memberCount").innerText=count;
 
 
-/* FORM — UPDATED WITH YOUR NEW WEB APP URL */
+/* FORM CONNECTED TO YOUR NEW GOOGLE SCRIPT */
 
 document.getElementById("joinForm").addEventListener("submit",function(e){
 
@@ -438,11 +418,12 @@ e.preventDefault();
 
 let formData=new FormData(this);
 
-fetch("https://script.google.com/macros/s/AKfycbyptrx1vc03z0cgv0DbtqJGp2FncmkvF5gtRiJpkLBewZuUmUCsT6O7IfZ60HcQOQo6/exec",{
+fetch("https://script.google.com/macros/s/AKfycbwArf08eRoi7y5DITI-o4Z0juvXtzMKymDNN2ocG5baZGB7cmbsb_bO6t63D8KNhVaX/exec",{
 method:"POST",
 body:formData
 })
-.then(res=>{
+.then(res=>res.text())
+.then(data=>{
 
 count++;
 localStorage.setItem("memberCount",count);
@@ -450,17 +431,20 @@ document.getElementById("memberCount").innerText=count;
 
 document.getElementById("successMsg").innerText="Successfully Joined.";
 
-this.reset();
+document.getElementById("joinForm").reset();
 
+})
+.catch(err=>{
+document.getElementById("successMsg").innerText="Error joining. Try again.";
 });
 
 });
 
 </script>
 
-
 </body>
 </html>
+
 
 
 
