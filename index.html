@@ -315,7 +315,7 @@ We believe in discipline, organization, and long-term vision.
 
 
 
-<!-- HISTORY RESTORED -->
+<!-- HISTORY -->
 
 <div id="history" class="page">
 
@@ -430,7 +430,7 @@ let count=localStorage.getItem("memberCount") || 0;
 document.getElementById("memberCount").innerText=count;
 
 
-/* FORM */
+/* FORM — UPDATED WITH YOUR NEW WEB APP URL */
 
 document.getElementById("joinForm").addEventListener("submit",function(e){
 
@@ -438,7 +438,7 @@ e.preventDefault();
 
 let formData=new FormData(this);
 
-fetch("https://script.google.com/macros/s/AKfycbx2Y6_JEe-NAKGY4wHaWYt9cDENy6kDfIghcKP06q1dHz6rWE7ZKbwNcQRpIbHkwo0_/exec",{
+fetch("https://script.google.com/macros/s/AKfycbyptrx1vc03z0cgv0DbtqJGp2FncmkvF5gtRiJpkLBewZuUmUCsT6O7IfZ60HcQOQo6/exec",{
 method:"POST",
 body:formData
 })
@@ -461,6 +461,7 @@ this.reset();
 
 </body>
 </html>
+
 
 
 
